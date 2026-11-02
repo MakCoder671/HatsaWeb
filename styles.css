@@ -1,0 +1,225 @@
+/* Hatsa Web — holding page
+   Dark ink on paper, one warm saffron accent. Type-led, no cards. */
+
+:root {
+  --paper: #e7e4dc;
+  --paper-deep: #dcd7cc;
+  --ink: #161410;
+  --ink-soft: #4a453c;
+  --accent: #b8860b;
+  --accent-deep: #8f6808;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  min-height: 100dvh;
+  color: var(--ink);
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  background:
+    radial-gradient(
+      120% 80% at 12% -10%,
+      rgba(184, 134, 11, 0.12),
+      transparent 55%
+    ),
+    radial-gradient(
+      90% 70% at 100% 100%,
+      rgba(22, 20, 16, 0.06),
+      transparent 50%
+    ),
+    linear-gradient(165deg, var(--paper) 0%, var(--paper-deep) 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  animation: grain-drift 8s steps(6) infinite;
+}
+
+@keyframes grain-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-1.5%, 1%);
+  }
+  50% {
+    transform: translate(1%, -1.5%);
+  }
+  75% {
+    transform: translate(-0.5%, -1%);
+  }
+}
+
+.stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-width: 42rem;
+  padding: clamp(2rem, 6vw, 4.5rem);
+  margin: 0 auto;
+}
+
+.mark {
+  margin: 0 0 clamp(1.25rem, 3vw, 2rem);
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: clamp(2.75rem, 9vw, 5.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  animation: rise 0.9s var(--ease) both;
+}
+
+.line {
+  margin: 0;
+  max-width: 22ch;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.15rem, 2.6vw, 1.45rem);
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: var(--ink-soft);
+  animation: rise 0.9s var(--ease) 0.12s both;
+}
+
+.actions {
+  margin-top: clamp(2rem, 5vw, 3.25rem);
+  animation: rise 0.9s var(--ease) 0.24s both;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.35rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 2px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition:
+    background 0.25s var(--ease),
+    color 0.25s var(--ease),
+    border-color 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+
+.cta::after {
+  content: "→";
+  display: inline-block;
+  transition: transform 0.25s var(--ease);
+}
+
+.cta:hover,
+.cta:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent-deep);
+  color: var(--ink);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.cta:hover::after,
+.cta:focus-visible::after {
+  transform: translateX(3px);
+}
+
+.cta:focus-visible {
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.35);
+}
+
+.caption {
+  margin: 0.75rem 0 0;
+  max-width: 28ch;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.contact {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;
+  transition: background-size 0.35s var(--ease), color 0.25s var(--ease);
+}
+
+.contact:hover,
+.contact:focus-visible {
+  color: var(--accent-deep);
+  background-size: 100% 1.5px;
+  outline: none;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.85rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain,
+  .mark,
+  .line,
+  .actions,
+  .cta,
+  .cta::after,
+  .contact {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .stage {
+    padding-top: clamp(3rem, 14vh, 5rem);
+    justify-content: flex-start;
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
