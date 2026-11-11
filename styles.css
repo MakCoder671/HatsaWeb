@@ -2141,3 +2141,38 @@ fieldset {
     display: none !important;
   }
 }
+
+.name-story {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+  padding: 42px;
+  margin-top: 30px;
+  border: 1px solid #d1c5e3;
+  background: var(--purple);
+  border-radius: 20px;
+}
+.name-story .eyebrow {
+  margin-bottom: 20px;
+}
+.name-story h2 {
+  font-size: clamp(2rem, 3.4vw, 3.1rem);
+}
+.name-story-copy p {
+  font-size: 0.95rem;
+}
+.name-story-copy p + p {
+  margin-top: 20px;
+}
+@media (max-width: 760px) {
+  .name-story {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 28px 24px;
+    margin-top: 5px;
+  }
+  .name-story-copy p {
+    font-size: 0.9rem;
+  }
+}

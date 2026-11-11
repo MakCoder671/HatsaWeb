@@ -101,3 +101,7 @@ Local WebP images are the owner's existing real Hatsa CRM product captures from 
 - Native filter buttons use aria-pressed, not tab semantics. Without JavaScript every project remains visible and the inactive filter controls stay hidden. Search uses text matching, never injected HTML.
 - New items can use `data-work-item="websites"` or `data-work-item="software"`; add a real category button when expanding beyond those. Existing website grouping uses `#website-projects` and software is `#software-projects`; update grouping logic if adding new grouped sections.
 - Contact route, recipient, consent, spam controls and provider submission are unchanged. No new email was sent in development; request interception is used in regressions.
+
+## Meaning behind the name
+
+About includes the owner's approved Chamorro/Guam roots and the connection between building and lifting others up. “Håtsa” meaning lift/raise/build is supported by the Chamorro dictionary entry at https://natibunmarianas.org/h/ . Brand spelling, domain, existing founder copy and current-location privacy remain unchanged; no residence details were added.
