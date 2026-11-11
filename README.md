@@ -14,6 +14,8 @@ The CRM is a **separate project/repository**, linked to `https://app.hatsaweb.co
 
 ## Contact delivery / owner activation
 
+**Owner-confirmed November 11, 2026:** FormSubmit activation completed and the owner received their test enquiry from the published Contact page. This is an owner-reported delivery check, not an independent inbox audit. Recheck delivery after any provider/recipient/domain change.
+
 The native contact form posts directly to **FormSubmit → Hatsaweb@gmail.com**, the owner-confirmed public inbox. No phone number, mail application, account, app server, frontend API key or custom backend is required. `site.js` only preselects a service from our links; the form works with JavaScript disabled.
 
 - Collects name, reply email, optional business/current website, readable service choice, message and required privacy acknowledgement. No attachments, payment data or newsletter signup.
@@ -85,7 +87,17 @@ Local WebP images are the owner's existing real Hatsa CRM product captures from 
 - Supplied light/dark PNG logos were losslessly converted to transparent WebP, trimming only their empty outer margins. Header uses the dark-lettered light-background logo; footer uses the white-lettered dark-background logo. No recoloring, filters or distorted proportions.
 - `assets/favicon.ico` is the exact supplied favicon; `assets/hatsa-mark.png` is its 256px representation for decorative agency branding. CRM product branding is separate and unchanged. The original temporary SVG favicon is no longer referenced.
 - Theme accents now use soft cyan/lavender to complement the official cyan-purple logo.
-- Booking, Island Flame and Ember & Moss lead the home portfolio; all five examples plus CRM are included in Work & CRM. Each has visible demo classification and an honest note about non-live transactions/registration.
+- Booking, Island Flame and Ember & Moss lead the home portfolio; all five examples plus CRM are included in Our Work. Each has visible demo classification and an honest note about non-live transactions/registration.
 - Desktop and mobile captures are separate compositions. Cards stack on phones; enlarged previews switch sizes without loading external websites. Without JavaScript the ordinary demo/source links and thumbnails remain available.
 - Gallery check: five projects × eight widths (320, 360, 390, 430, 768, 1024, 1280, 1600), both screenshot modes, Escape/focus restoration, no horizontal overflow or JS errors. The original page/viewport and new contact/privacy checks are rerun for subsequent changes.
 - Contact uses the owner-confirmed Gmail address; provider activation/delivery testing and Cloudflare/domain cutover remain owner actions. Hosted preview evidence belongs in the PR.
+
+## Founder story and organized work
+
+- About uses Mako’s owner-provided story: a family man and solo owner who loves building, wants useful tools/online visibility to be affordable, treats people with care and believes in mutual support. No fabricated family details, testimonials or price guarantees.
+- Navigation and footer use **Our Work**, distinct from **Services** (what customers can hire us for). `work.html` remains the stable URL.
+- **All work / Websites / Software** filters reflect the real current portfolio. No empty “Other” category or future products are invented. Add categories only alongside real entries.
+- Category and keyword search operate together; result count/reset/empty state are accessible. Selected filters are shareable via `?category=software` or `?category=websites&q=booking`. Project anchors take priority over conflicting filters, so Home project links remain usable.
+- Native filter buttons use aria-pressed, not tab semantics. Without JavaScript every project remains visible and the inactive filter controls stay hidden. Search uses text matching, never injected HTML.
+- New items can use `data-work-item="websites"` or `data-work-item="software"`; add a real category button when expanding beyond those. Existing website grouping uses `#website-projects` and software is `#software-projects`; update grouping logic if adding new grouped sections.
+- Contact route, recipient, consent, spam controls and provider submission are unchanged. No new email was sent in development; request interception is used in regressions.

@@ -2037,3 +2037,107 @@ fieldset {
 .form-title + .small {
   margin: -10px 0 22px;
 }
+
+/* Founder voice and quick, progressively enhanced project browsing. */
+.founder-signoff {
+  color: var(--ink);
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 1.65rem !important;
+}
+.founder-signoff span {
+  display: block;
+  margin-top: 6px;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  font-style: normal;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+.work-browser {
+  padding-block: 8px 22px;
+}
+.work-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: flex-end;
+}
+.work-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.work-filters button {
+  min-height: 46px;
+  border: 1px solid #b5beca;
+  border-radius: 7px;
+  padding: 11px 20px;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.work-filters button:hover {
+  background: #eae5f2;
+}
+.work-filters button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+.work-search {
+  width: min(350px, 100%);
+  margin: 0;
+  font-size: 0.75rem;
+}
+.work-search input {
+  background: #fff;
+  min-height: 46px;
+}
+.work-results {
+  font-size: 0.75rem;
+  margin-top: 18px;
+}
+.work-empty {
+  margin-block: 28px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 35px;
+  background: #fff;
+}
+.work-empty h2 {
+  font-size: 1.7rem;
+}
+.work-empty p {
+  margin-block: 15px;
+  font-size: 0.9rem;
+}
+@media (max-width: 760px) {
+  .work-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+  .work-search {
+    width: 100%;
+  }
+  .work-filters {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+  .work-filters button {
+    font-size: 0.78rem;
+    padding: 11px 9px;
+  }
+  .work-empty {
+    padding: 25px;
+  }
+}
+@media print {
+  .work-controls,
+  .work-results {
+    display: none !important;
+  }
+}
