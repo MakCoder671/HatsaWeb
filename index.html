@@ -1,44 +1,317 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hatsa Web</title>
+    <meta name="theme-color" content="#f7f6f2" />
+    <title>Hatsa Web | Thoughtful websites. Useful software.</title>
     <meta
       name="description"
-      content="Websites, redesigns, and software for small businesses."
+      content="Websites, website refreshes, local SEO foundations and focused custom tools for small businesses. Meet Hatsa Web and explore Hatsa CRM."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600&display=swap"
-      rel="stylesheet"
+    <meta
+      property="og:title"
+      content="Hatsa Web | Thoughtful websites. Useful software."
     />
+    <meta
+      property="og:description"
+      content="Websites, website refreshes, local SEO foundations and focused custom tools for small businesses. Meet Hatsa Web and explore Hatsa CRM."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="site-config.js" defer></script>
+    <script src="site.js" defer></script>
   </head>
   <body>
-    <div class="grain" aria-hidden="true"></div>
-
-    <main class="stage">
-      <p class="mark">Hatsa Web</p>
-
-      <h1 class="line">
-        Websites, redesigns, and software for small businesses.
-      </h1>
-
-      <div class="actions">
-        <a
-          class="cta"
-          href="https://mellax-business-crm-ri.vercel.app"
-          rel="noopener noreferrer"
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="wordmark" href="index.html" aria-label="Hatsa Web home"
+          ><span class="logo-mark" aria-hidden="true">h.</span>hatsa<span
+            >web</span
+          ></a
+        ><button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          hidden
         >
-          Try our CRM
-        </a>
-        <p class="caption">
-          Private demo. Invite only until billing is live.
-        </p>
-        <a class="contact" href="mailto:hello@hatsaweb.com">Contact</a>
+          Menu <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="site-nav" aria-label="Main navigation">
+          <a href="index.html" aria-current="page">Home</a
+          ><a href="services.html">Services</a><a href="work.html">Work & CRM</a
+          ><a href="about.html">About</a
+          ><a class="nav-contact" href="contact.html"
+            >Let’s talk <span aria-hidden="true">↗</span></a
+          >
+        </nav>
       </div>
+    </header>
+    <main id="main">
+      <section class="hero container">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="status-dot"></span> Thoughtful websites. Useful
+            software.
+          </p>
+          <h1>
+            Small business.<br /><span class="serif">Big possibilities.</span>
+          </h1>
+          <p class="lede">
+            Websites that make a great first impression.<br
+              class="desktop-only"
+            />
+            Tools that make the day a little easier.<br class="desktop-only" />
+            Built with your business in mind.
+          </p>
+          <div class="hero-actions">
+            <a class="button dark" href="contact.html"
+              >Let’s build something <span aria-hidden="true">↗</span></a
+            ><a class="text-link" href="services.html"
+              >Explore the services <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <p class="hero-foot">
+            Independent web design & software for small businesses
+          </p>
+        </div>
+        <div class="hero-art">
+          <div class="art-orbit" aria-hidden="true"></div>
+          <div class="floating-label">
+            <span class="mini-mark">h.</span>
+            <div>
+              Made by Hatsa Web<span>Real software. Real possibilities.</span>
+            </div>
+          </div>
+          <div class="browser hero-browser">
+            <div class="browser-bar">
+              <span class="window-dots" aria-hidden="true">● ● ●</span
+              ><span>Hatsa CRM / product preview</span
+              ><span aria-hidden="true">↗</span>
+            </div>
+            <img
+              src="assets/overview.webp"
+              alt="Hatsa CRM reports overview with fictional business figures"
+              width="1440"
+              height="1000"
+              loading="lazy"
+            />
+          </div>
+          <div class="art-note">
+            <span aria-hidden="true">✳</span> Good design.<br />Everyday
+            purpose.
+          </div>
+          <p class="art-caption">
+            Hatsa CRM / our own small-business software<br />Actual interface ·
+            illustrative sample data
+          </p>
+        </div>
+      </section>
+      <div class="value-strip">
+        <div class="container">
+          <span>Made for real-world businesses</span><span>Clear scope</span
+          ><span>Mobile-first thinking</span><span>Practical handover</span>
+        </div>
+      </div>
+      <section class="section container" id="services">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">What we can build together</p>
+            <h2>
+              A little less complicated.<br />A lot more
+              <span class="serif">you.</span>
+            </h2>
+          </div>
+          <p>
+            Start with what your business needs.<br />Not a stack of things it
+            doesn’t.
+          </p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card" id="website">
+            <div class="card-top">
+              <span class="number">01</span
+              ><span class="service-glyph" aria-hidden="true">⌘</span>
+            </div>
+            <h3>New websites</h3>
+            <p class="service-sub">A better first impression.</p>
+            <p>
+              A clear, mobile-friendly home for your business, built around what
+              your customers need to do next.
+            </p>
+            <a class="text-link" href="contact.html?service=website"
+              >Let’s talk <span aria-hidden="true">↗</span></a
+            >
+          </article>
+          <article class="service-card" id="refresh">
+            <div class="card-top">
+              <span class="number">02</span
+              ><span class="service-glyph" aria-hidden="true">↻</span>
+            </div>
+            <h3>Website refreshes</h3>
+            <p class="service-sub">Keep the good. Fix the friction.</p>
+            <p>
+              Outgrown your website? We can sharpen the design, simplify
+              navigation and make the important things easier to find.
+            </p>
+            <a class="text-link" href="contact.html?service=refresh"
+              >Let’s talk <span aria-hidden="true">↗</span></a
+            >
+          </article>
+          <article class="service-card" id="seo">
+            <div class="card-top">
+              <span class="number">03</span
+              ><span class="service-glyph" aria-hidden="true">◎</span>
+            </div>
+            <h3>Local SEO foundations</h3>
+            <p class="service-sub">Help nearby customers find you.</p>
+            <p>
+              Get the basics right, from clear service information to the
+              signals search engines use to understand your business.
+            </p>
+            <a class="text-link" href="contact.html?service=seo"
+              >Let’s talk <span aria-hidden="true">↗</span></a
+            >
+          </article>
+          <article class="service-card" id="tool">
+            <div class="card-top">
+              <span class="number">04</span
+              ><span class="service-glyph" aria-hidden="true">{ }</span>
+            </div>
+            <h3>Small custom tools</h3>
+            <p class="service-sub">Less busywork. More useful software.</p>
+            <p>
+              A focused tool for a specific task, without turning a simple need
+              into a giant software project.
+            </p>
+            <a class="text-link" href="contact.html?service=tool"
+              >Let’s talk <span aria-hidden="true">↗</span></a
+            >
+          </article>
+        </div>
+      </section>
+      <section class="product-section container" id="crm">
+        <div class="product-copy">
+          <p class="eyebrow">Our own software</p>
+          <div class="product-mark">
+            <span class="mini-mark" aria-hidden="true">h.</span> Hatsa CRM
+          </div>
+          <h2>Built for the work<br />behind the work.</h2>
+          <p>
+            Client details. Busy calendars. Invoices. Business reports. Hatsa
+            CRM brings the everyday pieces together in one small-business
+            workspace.
+          </p>
+          <ul class="inline-list">
+            <li>Clients</li>
+            <li>Scheduling</li>
+            <li>Invoicing</li>
+            <li>Reports</li>
+          </ul>
+          <a class="button dark" href="https://app.hatsaweb.com"
+            >Explore Hatsa CRM <span aria-hidden="true">↗</span></a
+          >
+          <p class="small">
+            A separate product by Hatsa Web. Features, plans and signup live on
+            the CRM site.
+          </p>
+        </div>
+        <div class="product-visual">
+          <div class="browser">
+            <div class="browser-bar">
+              <span class="window-dots" aria-hidden="true">● ● ●</span
+              ><span>Hatsa CRM / product preview</span
+              ><span aria-hidden="true">↗</span>
+            </div>
+            <img
+              src="assets/calendar-week.webp"
+              alt="Real Hatsa CRM week calendar filled with fictional demo appointments"
+              width="1440"
+              height="1000"
+              loading="lazy"
+            />
+          </div>
+          <p class="image-caption">
+            Actual product screen. Fictional demo business and sample data.
+          </p>
+        </div>
+      </section>
+      <section class="section container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">The way we work</p>
+            <h2>
+              From “what if”<br />to
+              <span class="serif">out in the world.</span>
+            </h2>
+          </div>
+          <a class="text-link" href="about.html"
+            >Meet Hatsa Web <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <ol class="process-list">
+          <li>
+            <span>01 / Understand</span>
+            <h3>Your business first.</h3>
+            <p>
+              We talk about your customers, your goals and what’s getting in the
+              way.
+            </p>
+          </li>
+          <li>
+            <span>02 / Make a plan</span>
+            <h3>Nothing fuzzy.</h3>
+            <p>
+              A clear scope, a quote and an agreement on what’s included before
+              work starts.
+            </p>
+          </li>
+          <li>
+            <span>03 / Build & hand over</span>
+            <h3>Something you can use.</h3>
+            <p>
+              Review the work, check it on real screens, then launch with a
+              practical handover.
+            </p>
+          </li>
+        </ol>
+      </section>
+      <section class="cta-band container">
+        <div>
+          <p class="eyebrow">A good next step</p>
+          <h2>What are you<br />working on?</h2>
+          <p>
+            A new idea, a tired website, or one task that takes too long.<br />Let’s
+            figure out what would actually help.
+          </p>
+        </div>
+        <a class="button dark" href="contact.html"
+          >Tell me about it <span aria-hidden="true">↗</span></a
+        >
+      </section>
     </main>
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <a class="wordmark" href="index.html"
+          ><span class="logo-mark" aria-hidden="true">h.</span>hatsa<span
+            >web</span
+          ></a
+        >
+        <p>Thoughtful websites.<br />Useful software. Real purpose.</p>
+        <div>
+          <a href="services.html">Services</a><a href="work.html">Work & CRM</a
+          ><a href="about.html">About</a
+          ><a href="contact.html">Contact & privacy</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© <span data-year>2026</span> Hatsa Web</span
+        ><span>Built with purpose. Kept simple.</span
+        ><a href="#main">Back to top ↑</a>
+      </div>
+    </footer>
   </body>
 </html>

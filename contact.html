@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f6f2" />
+    <title>Discuss your website or software project | Hatsa Web</title>
+    <meta
+      name="description"
+      content="Prepare a project brief for a new website, redesign, local SEO review or small custom tool. No backend submission or account required."
+    />
+    <meta
+      property="og:title"
+      content="Discuss your website or software project | Hatsa Web"
+    />
+    <meta
+      property="og:description"
+      content="Prepare a project brief for a new website, redesign, local SEO review or small custom tool. No backend submission or account required."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="site-config.js" defer></script>
+    <script src="site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="wordmark" href="index.html" aria-label="Hatsa Web home"
+          ><span class="logo-mark" aria-hidden="true">h.</span>hatsa<span
+            >web</span
+          ></a
+        ><button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          hidden
+        >
+          Menu <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="site-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a><a href="services.html">Services</a
+          ><a href="work.html">Work & CRM</a><a href="about.html">About</a
+          ><a class="nav-contact" href="contact.html"
+            >Let’s talk <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <header class="page-heading container">
+        <p class="eyebrow">Start a conversation</p>
+        <h1>Tell me what<br />you’re <span class="serif">imagining.</span></h1>
+        <p class="lede">
+          You don’t need a perfect brief. A little context about your business
+          and what you want to improve is a good place to start.
+        </p>
+      </header>
+      <section class="container contact-layout">
+        <aside>
+          <h2>Let’s find the<br />right starting point.</h2>
+          <p>
+            A new website, a refresh, a local search review or one small tool.
+            Tell me what’s working and what isn’t.
+          </p>
+          <div class="contact-notice" id="contact-notice">
+            <strong>Contact setup is in progress.</strong>
+            <p>
+              You can prepare and download a project brief below. It is not sent
+              or stored by this website.
+            </p>
+          </div>
+          <p class="small">
+            No payment required to prepare a brief. Please don’t include
+            passwords, card details or confidential customer information.
+          </p>
+        </aside>
+        <form id="project-form">
+          <h2 class="form-title">Your project, in a few words.</h2>
+          <div class="field-row">
+            <label
+              >Your name<input
+                name="name"
+                autocomplete="name"
+                required
+                maxlength="100" /></label
+            ><label
+              >Email<input
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                maxlength="254"
+            /></label>
+          </div>
+          <label
+            >Business name <span class="optional">(optional)</span
+            ><input
+              name="business"
+              autocomplete="organization"
+              maxlength="160" /></label
+          ><label
+            >What can I help with?<select name="service" id="service" required>
+              <option value="">Choose a service</option>
+              <option value="website">A new website</option>
+              <option value="refresh">A website refresh</option>
+              <option value="seo">Local SEO foundations</option>
+              <option value="tool">A small custom tool</option>
+              <option value="other">Not sure yet / something else</option>
+            </select></label
+          ><label
+            >Current website <span class="optional">(optional)</span
+            ><input
+              name="website"
+              type="url"
+              placeholder="https://"
+              maxlength="500" /></label
+          ><label
+            >What do you have in mind?<textarea
+              name="message"
+              rows="5"
+              required
+              minlength="10"
+              maxlength="4000"
+              placeholder="A little about your business, what you need and any timing you have in mind."
+            ></textarea>
+          </label>
+          <div class="form-actions">
+            <button class="button dark" id="brief-action" type="submit">
+              Download project brief <span aria-hidden="true">↓</span></button
+            ><button class="text-link" type="button" id="copy-brief">
+              Copy brief
+            </button>
+          </div>
+          <p class="small" id="form-explanation">
+            Downloads a text file to your device. No message is sent.
+          </p>
+          <p id="form-status" role="status" aria-live="polite"></p>
+          <noscript
+            ><p>
+              This brief helper needs JavaScript. You can still browse all
+              services and product links without it.
+            </p></noscript
+          >
+        </form>
+      </section>
+      <section class="container section narrow">
+        <h2>What happens next?</h2>
+        <p>
+          Once contact delivery is available, we’ll discuss the project, check
+          it’s a good fit, and agree on a scope and quote before any work
+          starts.
+        </p>
+        <p class="small">
+          Privacy: this static site does not store or submit your form entries,
+          use analytics, or embed third-party videos. If email is configured
+          later, sending your brief uses your own mail application.
+        </p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <a class="wordmark" href="index.html"
+          ><span class="logo-mark" aria-hidden="true">h.</span>hatsa<span
+            >web</span
+          ></a
+        >
+        <p>Thoughtful websites.<br />Useful software. Real purpose.</p>
+        <div>
+          <a href="services.html">Services</a><a href="work.html">Work & CRM</a
+          ><a href="about.html">About</a
+          ><a href="contact.html">Contact & privacy</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© <span data-year>2026</span> Hatsa Web</span
+        ><span>Built with purpose. Kept simple.</span
+        ><a href="#main">Back to top ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>
