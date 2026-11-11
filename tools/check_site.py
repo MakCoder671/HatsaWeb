@@ -20,7 +20,7 @@ class Page(HTMLParser):
         for attr in ('src', 'href'):
             if attrs.get(attr): self.links.append(attrs[attr])
         if tag == 'img':
-            assert attrs.get('alt'), 'Missing descriptive image alt'
+            assert 'alt' in attrs, 'Missing image alt (empty is allowed for decorative images)'
             assert attrs.get('width') and attrs.get('height'), 'Missing image dimensions'
 
 pages = {}

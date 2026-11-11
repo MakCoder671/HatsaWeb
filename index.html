@@ -18,7 +18,7 @@
       content="Websites, website refreshes, local SEO foundations and focused custom tools for small businesses. Meet Hatsa Web and explore Hatsa CRM."
     />
     <meta property="og:type" content="website" />
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
     <script src="site-config.js" defer></script>
     <script src="site.js" defer></script>
@@ -28,9 +28,12 @@
     <header class="site-header">
       <div class="container nav-wrap">
         <a class="wordmark" href="index.html" aria-label="Hatsa Web home"
-          ><span class="logo-mark" aria-hidden="true">h.</span>hatsa<span
-            >web</span
-          ></a
+          ><img
+            class="brand-logo"
+            src="assets/hatsa-logo-light.webp"
+            width="1443"
+            height="437"
+            alt="Hatsa Web" /></a
         ><button
           class="menu-toggle"
           type="button"
@@ -90,7 +93,13 @@
         <div class="hero-art">
           <div class="art-orbit" aria-hidden="true"></div>
           <div class="floating-label">
-            <span class="mini-mark">h.</span>
+            <img
+              class="agency-mark"
+              src="assets/hatsa-mark.png"
+              width="256"
+              height="256"
+              alt=""
+            />
             <div>
               Made by Hatsa Web<span>Real software. Real possibilities.</span>
             </div>
@@ -238,6 +247,131 @@
           </article>
         </div>
       </section>
+      <section
+        class="section container portfolio-home"
+        aria-labelledby="selected-work-heading"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">A few different directions</p>
+            <h2 id="selected-work-heading">
+              Different businesses.<br /><span class="serif"
+                >Their own personality.</span
+              >
+            </h2>
+          </div>
+          <a class="text-link" href="work.html"
+            >See all the work
+            <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 19 19 5M5 5h14v14" /></svg
+          ></a>
+        </div>
+        <p class="portfolio-note">
+          Real website builds, presented as demo concepts. Not client
+          testimonials or live customer businesses.
+        </p>
+        <div class="project-grid home-project-grid">
+          <article class="project-card" id="project-booking">
+            <div class="project-images">
+              <img
+                class="project-desktop"
+                src="assets/portfolio/booking-desktop.webp"
+                alt="Serein Studio demonstration website at desktop width"
+                width="1440"
+                height="1000"
+                loading="lazy"
+              /><img
+                class="project-phone"
+                src="assets/portfolio/booking-mobile.webp"
+                alt="Serein Studio layout at phone width"
+                width="390"
+                height="844"
+                loading="lazy"
+              /><span class="project-kind">Booking concept</span>
+            </div>
+            <div class="project-card-copy">
+              <p class="eyebrow">Booking & appointments</p>
+              <h3>Serein Studio</h3>
+              <p class="project-tagline">
+                A calmer path from first impression to booking.
+              </p>
+              <div class="project-actions">
+                <a class="text-link" href="work.html#project-booking"
+                  >View project
+                  <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 19 19 5M5 5h14v14" /></svg
+                ></a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card" id="project-island">
+            <div class="project-images">
+              <img
+                class="project-desktop"
+                src="assets/portfolio/island-desktop.webp"
+                alt="Island Flame demonstration website at desktop width"
+                width="1440"
+                height="1000"
+                loading="lazy"
+              /><img
+                class="project-phone"
+                src="assets/portfolio/island-mobile.webp"
+                alt="Island Flame layout at phone width"
+                width="390"
+                height="844"
+                loading="lazy"
+              /><span class="project-kind">Restaurant concept</span>
+            </div>
+            <div class="project-card-copy">
+              <p class="eyebrow">Food & local business</p>
+              <h3>Island Flame</h3>
+              <p class="project-tagline">
+                A little island personality. A clear customer journey.
+              </p>
+              <div class="project-actions">
+                <a class="text-link" href="work.html#project-island"
+                  >View project
+                  <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 19 19 5M5 5h14v14" /></svg
+                ></a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card" id="project-ember">
+            <div class="project-images">
+              <img
+                class="project-desktop"
+                src="assets/portfolio/ember-desktop.webp"
+                alt="Ember & Moss demonstration website at desktop width"
+                width="1440"
+                height="1000"
+                loading="lazy"
+              /><img
+                class="project-phone"
+                src="assets/portfolio/ember-mobile.webp"
+                alt="Ember & Moss layout at phone width"
+                width="390"
+                height="844"
+                loading="lazy"
+              /><span class="project-kind">Storefront concept</span>
+            </div>
+            <div class="project-card-copy">
+              <p class="eyebrow">Storefront & e-commerce</p>
+              <h3>Ember & Moss</h3>
+              <p class="project-tagline">
+                A considered storefront, from browsing to the bag.
+              </p>
+              <div class="project-actions">
+                <a class="text-link" href="work.html#project-ember"
+                  >View project
+                  <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 19 19 5M5 5h14v14" /></svg
+                ></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
       <section class="product-section container" id="crm">
         <div class="product-copy">
           <p class="eyebrow">Our own software</p>
@@ -349,10 +483,13 @@
     <footer class="site-footer">
       <div class="container footer-top">
         <a class="wordmark" href="index.html"
-          ><span class="logo-mark" aria-hidden="true">h.</span>hatsa<span
-            >web</span
-          ></a
-        >
+          ><img
+            class="brand-logo"
+            src="assets/hatsa-logo-dark.webp"
+            width="1443"
+            height="437"
+            alt="Hatsa Web"
+        /></a>
         <p>Thoughtful websites.<br />Useful software. Real purpose.</p>
         <div>
           <a href="services.html">Services</a><a href="work.html">Work & CRM</a
