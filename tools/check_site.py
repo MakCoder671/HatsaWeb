@@ -38,3 +38,26 @@ for name, page in pages.items():
         if parsed.fragment and target in pages:
             assert parsed.fragment in pages[target].ids, f'{name}: missing anchor {link}'
 print(f'PASS: {len(pages)} static pages; headings, metadata, image accessibility, local assets, links and anchors.')
+
+class ContactForm(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.form = None
+        self.fields = {}
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == 'form': self.form = attrs
+        if tag in ('input', 'textarea', 'select') and attrs.get('name'):
+            self.fields[attrs['name']] = attrs
+contact = ContactForm()
+contact.feed((ROOT / 'contact.html').read_text())
+assert contact.form['method'].upper() == 'POST'
+assert contact.form['action'] == 'https://formsubmit.co/Hatsaweb@gmail.com'
+for name in ('name', 'email', 'service', 'message', 'consent'):
+    assert 'required' in contact.fields[name], f'Missing required {name}'
+assert contact.fields['email']['type'] == 'email'
+assert '_honey' in contact.fields
+assert contact.fields.get('_captcha', {}).get('value') != 'false'
+assert 'form-action https://formsubmit.co;' in (ROOT / '_headers').read_text()
+assert not (ROOT / 'site-config.js').exists()
+print('PASS: native provider contact contract, required fields/consent, spam controls and CSP.')
