@@ -98,3 +98,73 @@ if (form) {
     }
   });
 }
+
+// Real, local screenshots. External demos are links, never embedded or executed here.
+const projectDialog = document.querySelector("#project-dialog");
+if (projectDialog && typeof projectDialog.showModal === "function") {
+  const previewImage = document.querySelector("#preview-image");
+  const previewHeading = document.querySelector("#preview-heading");
+  const modeButtons = projectDialog.querySelectorAll("[data-mode]");
+  const validProjects = new Set([
+    "booking",
+    "island",
+    "ember",
+    "event",
+    "service",
+  ]);
+  let activeProject = "";
+  let activeName = "";
+  let opener = null;
+  const showMode = (mode) => {
+    if (
+      !validProjects.has(activeProject) ||
+      !["desktop", "mobile"].includes(mode)
+    )
+      return;
+    previewImage.src = `assets/portfolio/${activeProject}-${mode}.webp`;
+    previewImage.alt = `${activeName} demo website, ${mode} screenshot`;
+    previewImage.width = mode === "mobile" ? 390 : 1440;
+    previewImage.height = mode === "mobile" ? 844 : 1000;
+    projectDialog.dataset.mode = mode;
+    modeButtons.forEach((button) =>
+      button.setAttribute("aria-pressed", String(button.dataset.mode === mode)),
+    );
+  };
+  document.querySelectorAll(".preview-trigger").forEach((button) => {
+    if (!validProjects.has(button.dataset.project)) return;
+    button.hidden = false;
+    button.addEventListener("click", () => {
+      opener = button;
+      activeProject = button.dataset.project;
+      activeName = button.dataset.title;
+      previewHeading.textContent = activeName;
+      showMode(
+        window.matchMedia("(max-width: 600px)").matches ? "mobile" : "desktop",
+      );
+      projectDialog.showModal();
+      document.body.classList.add("preview-open");
+    });
+  });
+  modeButtons.forEach((button) =>
+    button.addEventListener("click", () => showMode(button.dataset.mode)),
+  );
+  projectDialog
+    .querySelector(".preview-close")
+    .addEventListener("click", () => projectDialog.close());
+  projectDialog.addEventListener("click", (event) => {
+    if (event.target !== projectDialog) return;
+    const bounds = projectDialog.getBoundingClientRect();
+    if (
+      event.clientX < bounds.left ||
+      event.clientX > bounds.right ||
+      event.clientY < bounds.top ||
+      event.clientY > bounds.bottom
+    )
+      projectDialog.close();
+  });
+  projectDialog.addEventListener("close", () => {
+    document.body.classList.remove("preview-open");
+    previewImage.removeAttribute("src");
+    opener?.focus();
+  });
+}
