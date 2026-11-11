@@ -105,3 +105,7 @@ Local WebP images are the owner's existing real Hatsa CRM product captures from 
 ## Meaning behind the name
 
 About includes the owner's approved Chamorro/Guam roots and the connection between building and lifting others up. “Håtsa” meaning lift/raise/build is supported by the Chamorro dictionary entry at https://natibunmarianas.org/h/ . Brand spelling, domain, existing founder copy and current-location privacy remain unchanged; no residence details were added.
+
+## Founder portrait
+
+The owner supplied and approved the graduation photograph for About. It replaces only the large logo placeholder. Local 480px/960px WebP exports retain the full portrait composition and remove source EXIF metadata. No residence, degree/qualification claim, image filters or facial changes are added. The alternate wedding photo is not published. Header/footer logos, founder story, Håtsa name section, contact and CRM remain unchanged.

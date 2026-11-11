@@ -72,18 +72,28 @@
         class="container about-story"
         aria-labelledby="founder-story-heading"
       >
-        <div class="about-symbol" aria-hidden="true">
-          <img
-            src="assets/hatsa-logo-light.webp"
-            width="1443"
-            height="437"
-            alt=""
-          />
-          <p>
-            Built with passion.<br />Grounded in fairness.<br />Growing
-            together.
-          </p>
-        </div>
+        <figure class="founder-portrait">
+          <div class="portrait-frame">
+            <img
+              src="assets/mako-portrait-960.webp"
+              srcset="
+                assets/mako-portrait-480.webp 480w,
+                assets/mako-portrait-960.webp 960w
+              "
+              sizes="(max-width: 760px) calc(100vw - 88px), (max-width: 1100px) 40vw, 480px"
+              width="960"
+              height="1078"
+              alt="Mako, founder of Hatsa Web, smiling in his graduation cap and gown"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption>
+            <span class="portrait-name">Mako</span
+            ><span>Founder of Hatsa Web</span>
+            <p>Built with passion. Grounded in fairness.</p>
+          </figcaption>
+        </figure>
         <div>
           <p class="eyebrow">One small business, helping another</p>
           <h2 id="founder-story-heading">
