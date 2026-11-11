@@ -1990,3 +1990,50 @@ fieldset {
     break-inside: avoid;
   }
 }
+
+.form-trap {
+  display: none;
+}
+.contact-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+.contact-consent input {
+  width: 19px;
+  min-height: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  margin: 4px 0 0;
+  accent-color: var(--ink);
+}
+.contact-consent a,
+.privacy-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.contact-consent span {
+  min-width: 0;
+}
+.privacy-note {
+  margin-top: 35px;
+  border-top: 1px solid var(--line);
+  padding-top: 25px;
+  scroll-margin-top: 25px;
+}
+.privacy-note h3 {
+  font-size: 1.3rem;
+}
+.privacy-note p {
+  font-size: 0.85rem;
+  margin-top: 18px;
+}
+.privacy-note a {
+  overflow-wrap: anywhere;
+}
+.form-title + .small {
+  margin: -10px 0 22px;
+}

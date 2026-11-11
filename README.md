@@ -8,18 +8,35 @@ Hatsa Web's independent business site for small-business websites, redesigns, lo
 - `services.html`: four service offers, deliverables, hosting boundaries and FAQ.
 - `work.html`: five verified website demo concepts with desktop/mobile captures and a separate Hatsa CRM own-product case study. No commissioned-client claims.
 - `about.html`: founder-led approach and working principles.
-- `contact.html`: project-brief helper and plain-language privacy notice.
+- `contact.html`: native enquiry form for the owner-confirmed inbox, with a privacy notice.
 
 The CRM is a **separate project/repository**, linked to `https://app.hatsaweb.com`. This site does not embed the CRM, duplicate its pricing, claim payment readiness, or modify its billing/authentication/backend.
 
-## Before public launch: owner decisions
+## Contact delivery / owner activation
 
-1. **Confirm the public inbox.** `hello@hatsaweb.com` was a placeholder, so this revision does not pretend it is working. Set `contactEmail` in `site-config.js` to the verified public address when ready. This value is public, not a secret. Test a real email end to end.
-2. Until then the contact page explicitly says delivery is not configured and only **downloads/copies a brief locally**. No enquiry is sent. Do not advertise contact submission until an actual delivery method is confirmed.
-3. With an email configured, the helper opens a **mailto draft** for the visitor to review/send in their mail application. It is not a server-side contact form, has no delivery confirmation and requires a mail application. If a real form is desired, select a static-compatible form provider separately, review its limits/privacy/spam controls, and update the privacy text and CSP. Never add a secret API key to client code.
-4. Confirm service wording, quoting policy and optional monthly support offering. No prices, ranking guarantees, turnaround promises, testimonials or client outcomes have been invented. Custom backend operations/support and third-party costs must be separately agreed.
-5. Review the five owner-provided website examples in Work & CRM. They are labeled concepts/templates, not commissioned client work. Source revisions and capture details are recorded in `assets/portfolio/README.md`. Confirm any future client names, outcomes and permissions before publishing them.
-6. Preview before changing DNS. Intended business domain is **www.hatsaweb.com**; canonical host/redirect and metadata should be finalized when attached. `app.hatsaweb.com`, `dev.hatsaweb.com` and API/mail records must remain untouched.
+The native contact form posts directly to **FormSubmit → Hatsaweb@gmail.com**, the owner-confirmed public inbox. No phone number, mail application, account, app server, frontend API key or custom backend is required. `site.js` only preselects a service from our links; the form works with JavaScript disabled.
+
+- Collects name, reply email, optional business/current website, readable service choice, message and required privacy acknowledgement. No attachments, payment data or newsletter signup.
+- Uses native required/email/URL validation, named fields, a static subject and table email format.
+- Default provider reCAPTCHA is **not disabled**. A hidden `_honey` spam-trap is included. Visitors leave for FormSubmit's submission/spam-check/confirmation page; no unverified local success message or automatic response is shown.
+- `_headers` allows native form submission only to `https://formsubmit.co`. Other CSP protections remain in place. No cross-origin fetch/XHR is needed. Security headers are interpreted by Cloudflare Pages, not Vercel.
+- The public recipient is visible in HTML. FormSubmit offers an opaque endpoint after activation if the owner prefers to hide the address later. That ID must be configured separately; obscurity is not a substitute for spam controls.
+
+**Before relying on enquiries:**
+
+1. Publish/review this change, then submit one clearly labeled test enquiry from the published Contact page, using your own reply email.
+2. Check **Hatsaweb@gmail.com**, including Spam, for FormSubmit's activation message and approve it. No test or activation emails were sent during development.
+3. Submit a second test. Confirm the actual message arrives, all fields/service details are present, and replying addresses the visitor.
+4. Repeat a delivery check on the final Cloudflare custom domain after cutover; approve activation again if the provider requests it. Preview checks do not prove final-domain activation or inbox delivery.
+5. Do not announce the form as operational until this succeeds. Provider availability, spam filtering, Gmail delivery and usage limits are external dependencies.
+
+Provider documentation: https://formsubmit.co/documentation and https://formsubmit.co/help . Privacy copy on Contact discloses transfer to FormSubmit and Gmail, provider archive retention (documented as 30 days), separate enquiry-email retention and an owner contact for access/deletion. Do not send sensitive records. Review provider terms for your business and keep privacy wording current.
+
+## Other owner decisions
+
+- Confirm service wording, quoting policy and optional monthly support. No prices, ranking guarantees, turnaround promises or customer outcomes are invented.
+- Portfolio examples are concepts/templates, not commissioned-client claims; provenance is in `assets/portfolio/README.md`.
+- Intended domain is **www.hatsaweb.com**. Cloudflare deployment/cutover is separate; preserve `app`, `dev`, API and mail records. No DNS changes were made here.
 
 ## Local preview / checks
 
@@ -27,12 +44,11 @@ The CRM is a **separate project/repository**, linked to `https://app.hatsaweb.co
 python3 -m http.server 8080
 python3 tools/check_site.py
 node --check site.js
-node --check site-config.js
 ```
 
-Open localhost:8080. No npm install needed. Mobile menu requires JS, but without JS navigation is visible and ordinary links still work. FAQ uses native HTML disclosure controls. There is no third-party font, photo, analytics, tracking script, embedded video or remote runtime dependency.
+Open localhost:8080. No npm install needed. Mobile menu requires JS, but without JS navigation is visible and ordinary links still work. FAQ uses native HTML disclosure controls. There is no third-party font, tracking script or embedded video. Contact submission depends on FormSubmit; its spam check runs on the provider page.
 
-`site.js` handles menu/Escape, service preselection, form validation, local brief download/copy (or mailto draft only after inbox configuration), and the accessible desktop/mobile screenshot dialog. The dialog defaults to the phone capture on small screens, traps focus natively, closes on Escape and restores focus to its opener. It never makes a network form submission or stores form data.
+`site.js` handles menu/Escape, contact service preselection and the accessible desktop/mobile screenshot dialog. The dialog defaults to the phone capture on small screens, traps focus natively, closes on Escape and restores focus to its opener. The native browser form submits only on an explicit Send enquiry action; JavaScript does not intercept/send/store form entries.
 
 ## Cloudflare Pages
 
@@ -48,7 +64,7 @@ Per the guide: **Workers & Pages → Create application → Pages → Import an 
 - Build output directory: repository root, `/`.
 - No secrets or environment variables required.
 
-Review the initial `pages.dev` deployment before attaching a domain. Cloudflare plan limits still apply; this design does not promise unlimited free hosting. `_headers` supplies security headers on Cloudflare Pages; Vercel does not interpret that file. Reassess CSP before adding a third-party form/analytics service.
+Review the initial `pages.dev` deployment before attaching a domain. Cloudflare plan limits still apply; this design does not promise unlimited free hosting. `_headers` supplies security headers on Cloudflare Pages; Vercel does not interpret that file. The form-action directive explicitly permits FormSubmit. Reassess CSP before adding another form/analytics provider.
 
 No DNS changes or Vivio cancellation are part of this source PR. Before cutover, record existing DNS, preserve MX/TXT/mail and CRM/API subdomains, attach only the intended website hosts, decide a canonical host and redirect the other host, test both over HTTPS, then retire old hosting only after successful verification. Do not repoint the CRM application.
 
@@ -60,9 +76,9 @@ Local WebP images are the owner's existing real Hatsa CRM product captures from 
 
 - All five pages at 360, 390, 768, 1280 and 1600px: no horizontal overflow, images loaded, one h1 per page, no JS exceptions.
 - Mobile menu, keyboard Escape, native FAQ, service preselection, invalid query handling and download contents checked.
-- Fictional contact entries download locally with explicit no-send message and **no POST requests**. JavaScript-disabled navigation also checked.
+- Earlier local-brief tests were superseded by this native contact form. Current submission checks intercept the external POST locally (no real email sent), verify payload, invalid fields/consent, no-JS behavior and privacy disclosure. Inbox delivery requires the owner activation steps above.
 - No actual emails sent, CRM operations performed, domain changes or production deployments initiated by this task.
-- Hosted-preview evidence is recorded in the pull request. Inbox delivery and Cloudflare custom-domain cutover remain unverified.
+- Hosted-preview evidence is recorded in the pull request. Inbox delivery/activation and Cloudflare custom-domain cutover remain unverified.
 
 ## Official branding and demo portfolio
 
@@ -71,5 +87,5 @@ Local WebP images are the owner's existing real Hatsa CRM product captures from 
 - Theme accents now use soft cyan/lavender to complement the official cyan-purple logo.
 - Booking, Island Flame and Ember & Moss lead the home portfolio; all five examples plus CRM are included in Work & CRM. Each has visible demo classification and an honest note about non-live transactions/registration.
 - Desktop and mobile captures are separate compositions. Cards stack on phones; enlarged previews switch sizes without loading external websites. Without JavaScript the ordinary demo/source links and thumbnails remain available.
-- Gallery check: five projects × eight widths (320, 360, 390, 430, 768, 1024, 1280, 1600), both screenshot modes, Escape/focus restoration, no horizontal overflow or JS errors. All 25 original page/viewport checks and brief/privacy behavior also rerun.
-- Public inbox setup and Cloudflare/domain cutover remain pending owner action, unchanged by this portfolio update. Hosted preview evidence belongs in the PR.
+- Gallery check: five projects × eight widths (320, 360, 390, 430, 768, 1024, 1280, 1600), both screenshot modes, Escape/focus restoration, no horizontal overflow or JS errors. The original page/viewport and new contact/privacy checks are rerun for subsequent changes.
+- Contact uses the owner-confirmed Gmail address; provider activation/delivery testing and Cloudflare/domain cutover remain owner actions. Hosted preview evidence belongs in the PR.
