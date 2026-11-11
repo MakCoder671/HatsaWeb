@@ -109,3 +109,5 @@ About includes the owner's approved Chamorro/Guam roots and the connection betwe
 ## Founder portrait
 
 The owner supplied and approved the graduation photograph for About. It replaces only the large logo placeholder. Local 480px/960px WebP exports retain the full portrait composition and remove source EXIF metadata. No residence, degree/qualification claim, image filters or facial changes are added. The alternate wedding photo is not published. Header/footer logos, founder story, Håtsa name section, contact and CRM remain unchanged.
+
+Education details on About are owner-provided: Southern New Hampshire University, Bachelor of Science in Information Technologies, concentration in Software Development, Cum Laude. Caption and signoff retain Owner & Founder. No diploma verification or university endorsement is claimed.

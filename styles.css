@@ -2231,3 +2231,21 @@ fieldset {
     padding: 17px 10px 9px;
   }
 }
+
+.portrait-education {
+  line-height: 1.8;
+}
+.portrait-education strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+.education-honor {
+  display: inline-block;
+  margin-top: 9px;
+  border: 1px solid #b8a5ce;
+  border-radius: 4px;
+  padding: 2px 9px;
+  color: #4d3a68;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
