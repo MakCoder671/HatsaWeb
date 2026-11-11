@@ -674,10 +674,15 @@ ul {
   position: relative;
 }
 .check-list li:before {
-  content: "✓";
+  content: "";
   position: absolute;
-  left: 0;
-  color: #537221;
+  left: 2px;
+  top: 14px;
+  width: 6px;
+  height: 11px;
+  border-right: 1.5px solid #537221;
+  border-bottom: 1.5px solid #537221;
+  transform: rotate(45deg);
 }
 .scope {
   padding-top: 20px;
