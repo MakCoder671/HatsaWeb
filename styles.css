@@ -2176,3 +2176,58 @@ fieldset {
     font-size: 0.9rem;
   }
 }
+
+/* Keep the supplied portrait intact: no face crop, filters or invented background. */
+.founder-portrait {
+  align-self: start;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #c5b6da;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #eff8fc, #eae3f7);
+  box-shadow: 0 16px 38px #0817280b;
+}
+.portrait-frame {
+  border: 5px solid #fff;
+  border-radius: 13px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #08172820;
+  background: #15202d;
+}
+.portrait-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.founder-portrait figcaption {
+  padding: 19px 12px 12px;
+}
+.portrait-name {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+.founder-portrait figcaption > span + span {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.about-story .founder-portrait figcaption p {
+  margin-top: 14px;
+  font-size: 0.8rem;
+}
+@media (max-width: 760px) {
+  .founder-portrait {
+    width: 100%;
+    max-width: 430px;
+    justify-self: center;
+    padding: 10px;
+    border-radius: 18px;
+  }
+  .founder-portrait figcaption {
+    padding: 17px 10px 9px;
+  }
+}
