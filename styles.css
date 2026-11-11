@@ -1544,3 +1544,9 @@ fieldset {
   white-space: nowrap;
   border: 0;
 }
+
+.service-glyph.arrow {
+  width: 26px;
+  height: 26px;
+  stroke-width: 1.3;
+}
