@@ -31,6 +31,7 @@ document.querySelectorAll("[data-year]").forEach((element) => {
 });
 const form = document.querySelector("#project-form");
 if (form) {
+  document.querySelector("#brief-fields").disabled = false;
   const service = form.elements.service;
   const chosenService = new URLSearchParams(window.location.search).get(
     "service",
@@ -56,7 +57,7 @@ if (form) {
     address.href = `mailto:${email}`;
     address.textContent = email;
     notice.append(label, document.createElement("br"), address);
-    document.querySelector("#brief-action").textContent = "Open email draft ↗";
+    document.querySelector("#brief-action").textContent = "Open email draft";
     document.querySelector("#form-explanation").textContent =
       "Opens your email app with a draft. Review and send it there. This website does not send it for you.";
     document.querySelector(

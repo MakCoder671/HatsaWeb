@@ -44,8 +44,10 @@
           <a href="index.html">Home</a><a href="services.html">Services</a
           ><a href="work.html">Work & CRM</a><a href="about.html">About</a
           ><a class="nav-contact" href="contact.html"
-            >Let’s talk <span aria-hidden="true">↗</span></a
-          >
+            >Let’s talk
+            <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 19 19 5M5 5h14v14" /></svg
+          ></a>
         </nav>
       </div>
     </header>
@@ -78,66 +80,72 @@
           </p>
         </aside>
         <form id="project-form">
-          <h2 class="form-title">Your project, in a few words.</h2>
-          <div class="field-row">
+          <fieldset id="brief-fields" disabled>
+            <h2 class="form-title">Your project, in a few words.</h2>
+            <div class="field-row">
+              <label
+                >Your name<input
+                  name="name"
+                  autocomplete="name"
+                  required
+                  maxlength="100" /></label
+              ><label
+                >Email<input
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  maxlength="254"
+              /></label>
+            </div>
             <label
-              >Your name<input
-                name="name"
-                autocomplete="name"
-                required
-                maxlength="100" /></label
+              >Business name <span class="optional">(optional)</span
+              ><input
+                name="business"
+                autocomplete="organization"
+                maxlength="160" /></label
             ><label
-              >Email<input
-                name="email"
-                type="email"
-                autocomplete="email"
+              >What can I help with?<select
+                name="service"
+                id="service"
                 required
-                maxlength="254"
-            /></label>
-          </div>
-          <label
-            >Business name <span class="optional">(optional)</span
-            ><input
-              name="business"
-              autocomplete="organization"
-              maxlength="160" /></label
-          ><label
-            >What can I help with?<select name="service" id="service" required>
-              <option value="">Choose a service</option>
-              <option value="website">A new website</option>
-              <option value="refresh">A website refresh</option>
-              <option value="seo">Local SEO foundations</option>
-              <option value="tool">A small custom tool</option>
-              <option value="other">Not sure yet / something else</option>
-            </select></label
-          ><label
-            >Current website <span class="optional">(optional)</span
-            ><input
-              name="website"
-              type="url"
-              placeholder="https://"
-              maxlength="500" /></label
-          ><label
-            >What do you have in mind?<textarea
-              name="message"
-              rows="5"
-              required
-              minlength="10"
-              maxlength="4000"
-              placeholder="A little about your business, what you need and any timing you have in mind."
-            ></textarea>
-          </label>
-          <div class="form-actions">
-            <button class="button dark" id="brief-action" type="submit">
-              Download project brief <span aria-hidden="true">↓</span></button
-            ><button class="text-link" type="button" id="copy-brief">
-              Copy brief
-            </button>
-          </div>
-          <p class="small" id="form-explanation">
-            Downloads a text file to your device. No message is sent.
-          </p>
-          <p id="form-status" role="status" aria-live="polite"></p>
+              >
+                <option value="">Choose a service</option>
+                <option value="website">A new website</option>
+                <option value="refresh">A website refresh</option>
+                <option value="seo">Local SEO foundations</option>
+                <option value="tool">A small custom tool</option>
+                <option value="other">Not sure yet / something else</option>
+              </select></label
+            ><label
+              >Current website <span class="optional">(optional)</span
+              ><input
+                name="website"
+                type="url"
+                placeholder="https://"
+                maxlength="500" /></label
+            ><label
+              >What do you have in mind?<textarea
+                name="message"
+                rows="5"
+                required
+                minlength="10"
+                maxlength="4000"
+                placeholder="A little about your business, what you need and any timing you have in mind."
+              ></textarea>
+            </label>
+            <div class="form-actions">
+              <button class="button dark" id="brief-action" type="submit">
+                Download project brief <span aria-hidden="true">↓</span></button
+              ><button class="text-link" type="button" id="copy-brief">
+                Copy brief
+              </button>
+            </div>
+            <p class="small" id="form-explanation">
+              Downloads a text file to your device. No message is sent.
+            </p>
+            <p id="form-status" role="status" aria-live="polite"></p>
+          </fieldset>
           <noscript
             ><p>
               This brief helper needs JavaScript. You can still browse all
