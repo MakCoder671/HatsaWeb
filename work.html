@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f6f2" />
-    <title>Selected work &amp; Hatsa CRM | Hatsa Web</title>
+    <title>Our Work | Websites &amp; Software by Hatsa Web</title>
     <meta
       name="description"
       content="Explore Hatsa Web’s real website builds, responsive demo concepts and Hatsa CRM product screens."
     />
     <meta
       property="og:title"
-      content="Selected work &amp; Hatsa CRM | Hatsa Web"
+      content="Our Work | Websites &amp; Software by Hatsa Web"
     />
     <meta
       property="og:description"
@@ -47,7 +47,7 @@
         </button>
         <nav id="site-nav" aria-label="Main navigation">
           <a href="index.html">Home</a><a href="services.html">Services</a
-          ><a href="work.html" aria-current="page">Work & CRM</a
+          ><a href="work.html" aria-current="page">Our Work</a
           ><a href="about.html">About</a
           ><a class="nav-contact" href="contact.html"
             >Let’s talk
@@ -71,8 +71,47 @@
           big screens and small ones.
         </p>
       </header>
+      <section class="container work-browser" aria-label="Find a project">
+        <div class="work-controls" hidden>
+          <div class="work-filters" role="group" aria-label="Project category">
+            <button type="button" data-category="all" aria-pressed="true">
+              All work
+            </button>
+            <button type="button" data-category="websites" aria-pressed="false">
+              Websites
+            </button>
+            <button type="button" data-category="software" aria-pressed="false">
+              Software
+            </button>
+          </div>
+          <label class="work-search"
+            >Find something specific<input
+              type="search"
+              id="work-search"
+              placeholder="Try booking, storefront or CRM"
+              maxlength="100"
+              aria-controls="website-projects software-projects"
+              autocomplete="off"
+          /></label>
+        </div>
+        <p
+          class="work-results"
+          id="work-results"
+          role="status"
+          aria-live="polite"
+          hidden
+        ></p>
+        <div class="work-empty" hidden>
+          <h2>No matching work yet.</h2>
+          <p>Try a different word, or reset the filters to see everything.</p>
+          <button class="text-link" type="button" id="reset-work">
+            Show all work
+          </button>
+        </div>
+      </section>
       <section
         class="container portfolio-section"
+        id="website-projects"
         aria-labelledby="website-work-heading"
       >
         <div class="portfolio-intro">
@@ -85,7 +124,11 @@
           </p>
         </div>
         <div class="project-grid">
-          <article class="project-card" id="project-booking">
+          <article
+            class="project-card"
+            id="project-booking"
+            data-work-item="websites"
+          >
             <div class="project-images">
               <img
                 class="project-desktop"
@@ -144,7 +187,11 @@
               >
             </div>
           </article>
-          <article class="project-card" id="project-island">
+          <article
+            class="project-card"
+            id="project-island"
+            data-work-item="websites"
+          >
             <div class="project-images">
               <img
                 class="project-desktop"
@@ -203,7 +250,11 @@
               >
             </div>
           </article>
-          <article class="project-card" id="project-ember">
+          <article
+            class="project-card"
+            id="project-ember"
+            data-work-item="websites"
+          >
             <div class="project-images">
               <img
                 class="project-desktop"
@@ -262,7 +313,11 @@
               >
             </div>
           </article>
-          <article class="project-card" id="project-event">
+          <article
+            class="project-card"
+            id="project-event"
+            data-work-item="websites"
+          >
             <div class="project-images">
               <img
                 class="project-desktop"
@@ -321,7 +376,11 @@
               >
             </div>
           </article>
-          <article class="project-card" id="project-service">
+          <article
+            class="project-card"
+            id="project-service"
+            data-work-item="websites"
+          >
             <div class="project-images">
               <img
                 class="project-desktop"
@@ -413,6 +472,8 @@
       </dialog>
       <section
         class="container work-feature"
+        id="software-projects"
+        data-work-item="software"
         aria-label="Hatsa CRM, our own software"
       >
         <div class="work-meta">
@@ -420,7 +481,10 @@
           ><span>Product design / Web application</span>
         </div>
         <div class="work-title">
-          <h2>Hatsa CRM</h2>
+          <div>
+            <p class="eyebrow">Software</p>
+            <h2>Hatsa CRM</h2>
+          </div>
           <a class="text-link" href="https://app.hatsaweb.com"
             >Visit the product
             <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
@@ -524,7 +588,7 @@
         /></a>
         <p>Thoughtful websites.<br />Useful software. Real purpose.</p>
         <div>
-          <a href="services.html">Services</a><a href="work.html">Work & CRM</a
+          <a href="services.html">Services</a><a href="work.html">Our Work</a
           ><a href="about.html">About</a
           ><a href="contact.html">Contact & privacy</a>
         </div>

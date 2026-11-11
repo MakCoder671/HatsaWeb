@@ -110,3 +110,90 @@ if (projectDialog && typeof projectDialog.showModal === "function") {
     opener?.focus();
   });
 }
+
+// Inclusive portfolio filters: add a real category only when a real project exists.
+// Native buttons use aria-pressed (these filter results; they are not ARIA tabs).
+const workControls = document.querySelector(".work-controls");
+if (workControls) {
+  const items = Array.from(document.querySelectorAll("[data-work-item]"));
+  const buttons = Array.from(workControls.querySelectorAll("[data-category]"));
+  const search = document.querySelector("#work-search");
+  const results = document.querySelector("#work-results");
+  const empty = document.querySelector(".work-empty");
+  const websites = document.querySelector("#website-projects");
+  const validCategories = new Set(
+    buttons.map((button) => button.dataset.category),
+  );
+  let category = "all";
+  const applyFilters = (updateUrl = true) => {
+    const term = search.value.trim().toLocaleLowerCase();
+    let visible = 0;
+    for (const item of items) {
+      const matchesCategory =
+        category === "all" || item.dataset.workItem === category;
+      const matchesSearch =
+        !term || item.textContent.toLocaleLowerCase().includes(term);
+      item.hidden = !(matchesCategory && matchesSearch);
+      if (!item.hidden) visible++;
+    }
+    websites.hidden = !items.some(
+      (item) => item.dataset.workItem === "websites" && !item.hidden,
+    );
+    buttons.forEach((button) =>
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.category === category),
+      ),
+    );
+    const categoryLabel = buttons
+      .find((button) => button.dataset.category === category)
+      .textContent.trim();
+    results.textContent = `${visible} ${visible === 1 ? "project" : "projects"} shown${category === "all" ? "" : ` in ${categoryLabel}`}${term ? " matching your search" : ""}.`;
+    empty.hidden = visible !== 0;
+    if (updateUrl) {
+      const url = new URL(window.location.href);
+      if (category === "all") url.searchParams.delete("category");
+      else url.searchParams.set("category", category);
+      if (search.value.trim()) url.searchParams.set("q", search.value.trim());
+      else url.searchParams.delete("q");
+      // Do not preserve an old project fragment that the new filters may hide.
+      url.hash = "";
+      window.history.replaceState(null, "", url);
+    }
+  };
+  const revealAnchor = () => {
+    const target = document.getElementById(window.location.hash.slice(1));
+    const item = target?.closest("[data-work-item]");
+    if (!item) return;
+    category = item.dataset.workItem;
+    search.value = "";
+    applyFilters(false);
+  };
+  const readUrl = () => {
+    const query = new URLSearchParams(window.location.search);
+    category = validCategories.has(query.get("category"))
+      ? query.get("category")
+      : "all";
+    search.value = (query.get("q") || "").slice(0, 100);
+    applyFilters(false);
+    revealAnchor();
+  };
+  buttons.forEach((button) =>
+    button.addEventListener("click", () => {
+      category = button.dataset.category;
+      applyFilters();
+    }),
+  );
+  search.addEventListener("input", () => applyFilters());
+  document.querySelector("#reset-work").addEventListener("click", () => {
+    category = "all";
+    search.value = "";
+    applyFilters();
+    buttons[0].focus();
+  });
+  window.addEventListener("popstate", readUrl);
+  window.addEventListener("hashchange", revealAnchor);
+  workControls.hidden = false;
+  results.hidden = false;
+  readUrl();
+}
